@@ -4,7 +4,7 @@
  */
 package com.mycompany.mundialciclismo;
 
-import temporal.ControladorMundial;
+import controlador.ControladorMundial;
 import Vista.VistaMundial;
 
 public class MundialCiclismo {
