@@ -21,10 +21,38 @@ public class Competidor extends Atleta {
 
     public int getRankingMundial() { return rankingMundial; }
     public int getPuntos() { return puntos; }
+    
+ public void actualizarRanking(int puntosObtenidos) {
+        puntos = puntos + puntosObtenidos;
+       
+        rankingMundial = rankingMundial - (puntosObtenidos / 100);
+        if (rankingMundial < 1) {
+            rankingMundial = 1;
+        }
+    }
+
+    
+    public void actualizarRanking(int puntosObtenidos, boolean ganoMedalla) {
+        int bonificacion;
+        if (ganoMedalla) {
+            if (puntosObtenidos >= 100) {
+                bonificacion = 100;
+            } else {
+                bonificacion = 50;
+            }
+        } else {
+            bonificacion = 0;
+        }
+        actualizarRanking(puntosObtenidos + bonificacion);
+    }
+
+    
 
     @Override
     public String toString() {
         return super.toString() + " | Ranking: " + rankingMundial + " | Estatura: " + estatura
                 + " | Peso: " + peso + " | Puntos: " + puntos;
     }
-}
+    }
+   
+   
